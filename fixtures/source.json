@@ -1,0 +1,42 @@
+{
+  "stages": {
+    "opening": {
+      "routes": {
+        "/tenders": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"noticeId\": \"T1\", \"title\": \"设备采购\", \"revision\": 1, \"publishedAt\": \"2026-11-16T08:00:00Z\", \"attachments\": [{\"id\": \"A1\", \"href\": \"/files/A1\", \"checksum\": \"b5a2c96250612366ea272ffac6d9744aaf4b45aacd96aa7cfcb931ee3b558259\"}]}</script></body></html>",
+          "etag": "\"opening\""
+        },
+        "/files/A1": {
+          "contentType": "application/octet-stream",
+          "body": "dummy",
+          "etag": "\"a1-v1\""
+        },
+        "/files/A2": {
+          "contentType": "text/plain",
+          "body": "not yet uploaded",
+          "status": 404
+        }
+      }
+    },
+    "updated": {
+      "routes": {
+        "/tenders": {
+          "contentType": "text/html; charset=utf-8",
+          "body": "<!doctype html><html><body><script type=\"application/json\" class=\"source-record\">{\"noticeId\": \"T1\", \"title\": \"设备采购补遗\", \"revision\": 2, \"publishedAt\": \"2026-11-16T09:00:00Z\", \"attachments\": [{\"id\": \"A2\", \"href\": \"/files/A2\", \"checksum\": \"unknown\"}]}</script></body></html>",
+          "etag": "\"updated\""
+        },
+        "/files/A1": {
+          "contentType": "application/octet-stream",
+          "body": "amended",
+          "etag": "\"a1-v2\""
+        },
+        "/files/A2": {
+          "contentType": "text/plain",
+          "body": "not yet uploaded",
+          "status": 404
+        }
+      }
+    }
+  }
+}
