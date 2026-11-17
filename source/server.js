@@ -9,7 +9,9 @@ export async function startSource(scenarioPath) {
   const faults = new Map();
   const server = createServer(async (request, response) => {
     const path = request.url;
-    requests.push({ method: request.method, path, stage });
+    requests.push({ method: request.method, path, stage,
+      ...(request.headers.range ? { range: request.headers.range } : {}),
+      ...(request.headers['if-match'] ? { ifMatch: request.headers['if-match'] } : {}) });
     const queue = faults.get(path);
     if (queue?.length) {
       const fault = queue.shift();
